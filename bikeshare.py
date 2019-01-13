@@ -88,14 +88,14 @@ def time_stats(df):
     months = ['January', 'February', 'March', 'April', 'May', 'June']
     index = int(df['Start Time'].dt.month.mode())
     popular_month = months[index - 1]
-    print('The most popular month is {}.'.format(popular_month))
+    print('The most popular month is {}'.format(popular_month))
 
     # display the most common day of week
     days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday',
                     'Saturday', 'Sunday']
     index = int(df['Start Time'].dt.dayofweek.mode())
     popular_day = days[index]
-    print('The most popular day is {}.'.format(popular_day))
+    print('The most popular day is {}'.format(popular_day))
 
     # display the most common start hour
     popular_hour = int(df['Start Time'].dt.hour.mode())
@@ -103,9 +103,9 @@ def time_stats(df):
     time_readable = time.strptime(popular_hour_24,"%H:%M")
     popular_hour = time.strftime("%I:%M %p",time_readable)
 
-    print('The most popular hour is {}.'.format(popular_hour))
+    print('The most popular hour is {}'.format(popular_hour))
 
-    print('\nThis took %s seconds.' % round((time.time() - start_time),2))
+    print('\nThis took %s seconds' % round((time.time() - start_time),2))
     print('-'*40)
 
 
@@ -125,7 +125,7 @@ def station_stats(df):
     combination_station = df['Start Station'].astype(str) + " to " + df['End Station'].astype(str)
     most_frequent = combination_station.describe()["top"]
     most_frequent_count = combination_station.describe()["freq"]
-    print ('The most commonly used start station is "{}".\nThe most commonly used end station is "{}".\nThe most frequent trip is "{}" with {} counts.'.format(start_station,end_station,most_frequent,most_frequent_count))
+    print ('The most commonly used start station is "{}"\nThe most commonly used end station is "{}"\nThe most frequent trip is "{}" with {} counts'.format(start_station,end_station,most_frequent,most_frequent_count))
 
     print("\nThis took %s seconds." % round((time.time() - start_time),2))
     print('-'*40)
@@ -143,9 +143,9 @@ def trip_duration_stats(df):
     # display mean travel time
     mean_travel = int(df['Trip Duration'].mean())
 
-    print('The total traveled time is {}.\nThe average travel time is {}.'.format(display_time(total_travel),display_time(mean_travel)))
+    print('The total traveled time is {}\nThe average travel time is {}'.format(display_time(total_travel),display_time(mean_travel)))
 
-    print("\nThis took %s seconds." % round((time.time() - start_time),2))
+    print("\nThis took %s seconds" % round((time.time() - start_time),2))
     print('-'*40)
 
 def display_time(seconds):
@@ -163,7 +163,8 @@ def display_time(seconds):
     ('day(s)', 86400),
     ('hour(s)', 3600),
     ('minute(s)', 60),
-    ('second(s)', 1),)
+    ('second(s)', 1)
+    )
 
     result = []
     # calculate and merge timeframe
@@ -224,12 +225,12 @@ def  additional_stats(df):
     answer = False
     #check user's response
     while answer == False:
-        valid = input('Display additional data?\nPlease enter "yes" or "no".\n')
+        valid = input('Display additional data?\nPlease enter "yes" or "no"\n')
         answer = available(valid)
         if answer == True:
             break
         else:
-            print('That is not a valid answer.\nPlease enter "yes" or "no".\n')
+            print('That is not a valid answer.\nPlease enter "yes" or "no"\n')
     #print 5 rows of data
     if valid.strip().lower() == 'yes':
         print(df[df.columns].iloc[first:last])
@@ -238,12 +239,12 @@ def  additional_stats(df):
         while valid_2.strip().lower() != 'no':
                  answer_2 = False
                  while answer_2 == False:
-                    valid_2 = input('Display additional data?\nPlease enter "yes" or "no".\n')
+                    valid_2 = input('Display additional data?\nPlease enter "yes" or "no"\n')
                     answer_2 = available(valid_2)
                     if answer_2 == True:
                         break
                     else:
-                        print('That is not a valid answer.\nPlease enter "yes" or "no".\n')
+                        print('That is not a valid answer.\nPlease enter "yes" or "no"\n')
                  #print 5 more rows
                  if valid_2.strip().lower() == 'yes':
                     first += 5
@@ -260,9 +261,9 @@ def restart():
         Returns:
             False if answer is no, re-runs program if answer is yes, otherwise prompts the user to re-input answer
     '''
-    user_input = str(input('\nWould you like to restart? Please enter "yes" or "no".\n'))
+    user_input = str(input('\nWould you like to restart? Please enter "yes" or "no"\n'))
     if user_input.strip().lower() not in ('yes','no') :
-            print('That is not a valid answer.')
+            print('That is not a valid answer')
             restart()
     elif user_input.strip().lower() == 'yes':
         main()
