@@ -1,6 +1,6 @@
 ### Date created
-Project creation date: 12/06/2018
-README creation date: 1/13/2019
+* Project creation date: 12/06/2018
+* README creation date: 1/13/2019
 
 ### Project Title
 Explore US Bikeshare Data
@@ -12,5 +12,5 @@ A python program that provides bikeshare data depending on user input
 bikeshare.py
 
 ### Credits
-www.udacity.com
-www.stackoverflow.com
+* www.udacity.com
+* www.stackoverflow.com
